@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="bigBang_cc" type="id"/>
+    <item name="bigBang_c" type="id"/>
+    <item name="bigBang_c_click" type="id"/>
+</resources>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.cpacm.FloatingMusicMenu
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:fmm_backgroundTint="#fff"
+    app:fmm_cover="@drawable/ic_camera_black_24dp"
+    app:fmm_progress_color="?attr/colorPrimary"
+    app:fmm_progress_percent="10"
+    app:layout_behavior="com.cpacm.FloatingMusicMenu$Behavior"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab_play"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ic_pause"-->
+        <!--app:fabSize="mini" />-->
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab_next"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:src="@drawable/ic_play_detail"-->
+        <!--app:fabSize="mini" />-->
+
+</com.cpacm.FloatingMusicMenu>

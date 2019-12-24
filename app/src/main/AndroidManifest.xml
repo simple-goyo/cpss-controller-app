@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.fdse.scontroller">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 粗略的位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 精确的位置权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat">
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="Boink. Sample Module which will replace everything in codepath demo app to Boink " />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="54" />
+
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" />
+        <!-- <activity -->
+        <!-- android:name=".LoginActivity" -->
+        <!-- android:label="@string/title_activity_login" /> -->
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.musicbtn.FmmActivity"
+            android:label="@string/title_activity_add_device"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <activity
+            android:name=".activity.tasks.TasksWorkflowActivity"
+            android:label="@string/title_activity_tasks_workflow"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.tasks.TasksWorkflowD3Activity"
+            android:icon="@drawable/ic_access_time_24dp"
+            android:label="@string/title_activity_tasks_workflow" />
+        <activity android:name=".activity.tasks.ServiceListActivity" />
+        <activity
+            android:name=".activity.devices.AddDeviceActivity"
+            android:label="@string/title_activity_add_device"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.devices.MeasureDistActivity"
+            android:label="设备测距"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.devices.NewDeviceDetailActivity"
+            android:label="@string/title_activity_new_device_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.fdse.scontroller.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <meta-data
+            android:name="design_width"
+            android:value="768" />
+        <meta-data
+            android:name="design_height"
+            android:value="1280" />
+
+        <activity android:name=".activity.devices.NewDeviceManageActivity"
+            android:theme="@style/Theme.AppCompat" />
+        <activity android:name=".activity.devices.ManualAddDeviceActivity"></activity>
+
+        <!-- <service -->
+        <!-- android:name=".heartbeatpackage.PollingService" -->
+        <!-- android:enabled="true" -->
+        <!-- android:exported="true" /> -->
+        <service
+            android:name=".heartbeatpackage.HeartBeatService"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="HeartBeatService" />
+            </intent-filter>
+        </service>
+        <!-- Mqtt Service -->
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
+        <service android:name=".service.MQTTService" />
+        <service android:name=".service.FloatingButtonService"></service>
+        <service android:name=".service.ReplayService"></service>
+    </application>
+
+</manifest>
