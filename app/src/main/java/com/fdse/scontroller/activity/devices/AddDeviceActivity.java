@@ -49,7 +49,9 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import okhttp3.Call;
@@ -371,26 +373,41 @@ public class AddDeviceActivity extends BaseActivity {
         jsonObject = new JSONObject(responceData);
         String url = (String) jsonObject.get("url");
         Object dataObject = jsonObject.get("data");
-        if ("null".equals(dataObject)) {
+        if ("null".equals(dataObject) || "{}".equals(dataObject)) {
             showUploadFailed("正在查询设备信息，请稍等");
             return;
         }
-        listDeviceData = (JSONArray) jsonObject.get("data");
-        listViewData = new String[listDeviceData.length()];
-        for (int i = 0; i < listDeviceData.length(); i++) {
-            JSONObject device = (JSONObject) listDeviceData.get(i);
-//            String deivceInfo = device.toString();
-            String deivceInfo = "";
-            deivceInfo += "名称：";
-            deivceInfo += device.get("名称");
+
+        JSONObject device = new JSONObject(jsonObject.get("data").toString());
+        String deivceInfo = "";
+        Iterator iter = device.keys();
+        while (iter.hasNext()) {
+            String key=iter.next().toString();
+            String value=device.get(key).toString();
+            deivceInfo += key+ "：";
+            deivceInfo += value;
             deivceInfo += "\n";
-            deivceInfo += "品牌：";
-            deivceInfo += device.get("品牌");
-            deivceInfo += "\n";
-            deivceInfo += "类别：";
-            deivceInfo += device.get("类别");
-            listViewData[i] = deivceInfo;
         }
+
+        listViewData = new String[1];
+        listViewData[0] = deivceInfo;
+
+//        listDeviceData = (JSONArray) jsonObject.get("data");
+//        listViewData = new String[listDeviceData.length()];
+//        for (int i = 0; i < listDeviceData.length(); i++) {
+//            JSONObject device = (JSONObject) listDeviceData.get(i);
+////            String deivceInfo = device.toString();
+//            String deivceInfo = "";
+//            deivceInfo += "名称：";
+//            deivceInfo += device.get("名称");
+//            deivceInfo += "\n";
+//            deivceInfo += "品牌：";
+//            deivceInfo += device.get("品牌");
+//            deivceInfo += "\n";
+//            deivceInfo += "类别：";
+//            deivceInfo += device.get("类别");
+//            listViewData[i] = deivceInfo;
+//        }
         initAdapter();
     }
 
