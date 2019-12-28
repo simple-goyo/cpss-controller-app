@@ -154,7 +154,7 @@ public class NewDeviceManageActivity extends AppCompatActivity implements TextTo
         }
         tts.speak("Start playback", TextToSpeech.QUEUE_FLUSH, null);
         UtilsOfSDCard.saveState("Playback");
-        //开始服务
+        //开始服务1
         if (!Settings.canDrawOverlays(this)) {
             Toast.makeText(this, "当前无权限，请授权", Toast.LENGTH_SHORT);
             startActivityForResult(new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getPackageName())), 0);
