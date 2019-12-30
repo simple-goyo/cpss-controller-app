@@ -241,7 +241,7 @@ public class SensorHook implements IXposedHookLoadPackage {
 
                                     handler.postDelayed(new Runnable() {
                                         @Override
-                                        public void run() {
+                                            public void run() {
                                             if (state.event.getAction() == 9) {
                                                 //回放结束
                                                 UtilsOfSDCard.saveState("Normal");

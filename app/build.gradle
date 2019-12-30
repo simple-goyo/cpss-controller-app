@@ -65,6 +65,7 @@ dependencies {
     //hook
     compileOnly 'de.robv.android.xposed:api:82'
     compileOnly 'de.robv.android.xposed:api:82:sources'
-
+    //视频缓存
+    implementation 'com.danikula:videocache:2.7.0'
 
 }

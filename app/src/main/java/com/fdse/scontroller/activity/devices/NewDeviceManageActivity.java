@@ -135,6 +135,12 @@ public class NewDeviceManageActivity extends AppCompatActivity implements TextTo
         }
     }
 
+    public void startHousekeeper(View view ){
+        //显示方式声明Intent，直接启动SecondActivity
+        Intent intent = new Intent(NewDeviceManageActivity.this, HousekeeperActivity.class);
+        startActivity(intent);
+    }
+
     public void startFloatingButtonService(View view) {
         if (FloatingButtonService.isStarted) {
             return;

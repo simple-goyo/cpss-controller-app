@@ -161,9 +161,9 @@ public class FloatingButtonService extends Service {
                     menuBtn.removeButton(videoBtn);
                     menuBtn.addButton(pauseBtn);
                     menuBtn.addButton(endBtn);
-                    Intent news = new Intent(mContext, NewDeviceManageActivity.class);
-                    news.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Service跳转到Activity 要加这个标记
-                    mContext.startActivity(news);
+//                    Intent news = new Intent(mContext, NewDeviceManageActivity.class);
+//                    news.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Service跳转到Activity 要加这个标记
+//                    mContext.startActivity(news);
                     long downTime = SystemClock.uptimeMillis();
                     long eventTime = SystemClock.uptimeMillis() + 100;
                     float x = 0.0f;
